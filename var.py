@@ -3,13 +3,15 @@ import os
 from dotenv import dotenv_values
 auth = dotenv_values()
 
+mail_from= 'devmanorg@yandex.ru'
+mail_to= 'ken.mcc@yandex.ru'
 friend= 'Иван'
 my_name= 'Кудратилла'
 website= 'dvmn.org'
 
 letter= """\
-From: devmanorg@yandex.ru
-To: ken.mcc@yandex.ru
+From: mail_from
+To: mail_to
 Subject: Приглашение!
 Content-Type: text/plain; charset="UTF-8";
 
@@ -34,5 +36,5 @@ letter = letter.encode("UTF-8")
 
 server = smtplib.SMTP_SSL('smtp.yandex.ru:465')
 server.login(auth['LOGIN'], auth['PASS'])
-server.sendmail('devmanorg@yandex.ru', 'ken.mcc@yandex.ru', letter)
+server.sendmail(mail_from, mail_to, letter)
 server.quit()
