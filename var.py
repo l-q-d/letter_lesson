@@ -3,15 +3,15 @@ import os
 from dotenv import dotenv_values
 auth = dotenv_values()
 
-mail_from= 'devmanorg@yandex.ru'
-mail_to= 'ken.mcc@yandex.ru'
 friend= 'Иван'
 my_name= 'Кудратилла'
 website= 'dvmn.org'
+mail_from= 'devmanorg@yandex.ru'
+mail_to= 'ken.mcc@yandex.ru'
 
 letter= """\
-From: mail_from
-To: mail_to
+From: {3}
+To: {4}
 Subject: Приглашение!
 Content-Type: text/plain; charset="UTF-8";
 
@@ -30,7 +30,7 @@ Content-Type: text/plain; charset="UTF-8";
 Все проекты — они же решение наших задачек — можно разместить на твоём GitHub. Работодатели такое оценят. 
 
 Регистрируйся → {2}  
-На курсы, которые еще не вышли, можно подписаться и получить уведомление о релизе сразу на имейл.""".format(friend, my_name, website)
+На курсы, которые еще не вышли, можно подписаться и получить уведомление о релизе сразу на имейл.""".format(friend, my_name, website, mail_from, mail_to)
 
 letter = letter.encode("UTF-8")
 
